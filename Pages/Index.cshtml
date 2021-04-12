@@ -1,0 +1,27 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "FizzBuzz";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome @Model.Name</h1>
+
+    <form method="post">
+
+        <label asp-for="Numbers.Number"></label>
+        <b><span asp-validation-for="Numbers.Number" class="text-danger"></span></b>
+        <input asp-for="Numbers.Number" /><br />
+
+        <button type="submit">Zatwierdź</button>
+
+        @if (Model.Ocena != null)
+        {
+        <h2 style="color:@Model.Kolor">@Model.Ocena</h2>
+        }
+    </form>
+
+</div>
+
+
+

@@ -1,0 +1,37 @@
+﻿@page
+@model zadankozbazdanych.Pages.ListnumbersModel
+@{
+    ViewData["Title"] = "Lista";
+    int licznik = 0;
+}
+<p>Dane w zapisane w sesji</p>
+
+@foreach (var item in Model.numbers.Reverse())
+{
+
+    licznik++;
+    @if (licznik <= 10)
+    {
+
+<p>
+    @Html.DisplayFor(modelItem => item.Id)
+    @Html.DisplayFor(modelItem => item.Number)
+    @Html.DisplayFor(modelItem => item.Data)
+    @Html.DisplayFor(modelItem => item.Ocena)
+    <form method="post">
+
+        <input type="hidden" name="Id" value=@item.Id />
+        <button type="submit">Usuń</button>
+      
+    </form>
+</p>
+    }
+}
+
+
+
+
+
+
+
+
